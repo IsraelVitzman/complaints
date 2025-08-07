@@ -1,4 +1,4 @@
-import {CreateConnection} from '../db/connectuon'
+import {CreateConnection} from '../db/connection.js'
 
 export async function UpdateStatus(req, res) {
   try {
@@ -27,7 +27,7 @@ export async function AddComplaints(req ,res){
         const {typeComplaints,complaints}=req.body
         const connection = await CreateConection();
         const status = 'בטיפול'
-        const query = `INSERT INTO users (typeComplaints,complaints,status) VALUES (?, ?,?)`;
+        const query = `INSERT INTO complaints (typeComplaints,complaints,status) VALUES (?, ?,?)`;
         await connection.execute(query, [typeComplaints,complaints,status]);
 
         res.status(201).json({message:'insert successfully'})
