@@ -1,6 +1,6 @@
 import {CreateConnection} from '../db/connectuon'
 
-export async function SuccessfullyTreated(req, res) {
+export async function UpdateStatus(req, res) {
   try {
     const { typeComplaints, complaints } = req.body;
     const connection = await CreateConnection();

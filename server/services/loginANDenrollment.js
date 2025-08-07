@@ -2,7 +2,7 @@ import {CreateConnection} from '../db/connectuon'
 
 export async function Login(req ,res) {
     try{
-       const {name ,password}=req.body
+       const {name ,password }=req.body
        const connection = await CreateConnection()
        const query = `SELECT * FROM users WHERE name = ? AND password = ?`;
        const [rows] = await connection.execute(query, [name ,password]);
@@ -21,7 +21,7 @@ export async function Login(req ,res) {
 export async function Enrollment(req ,res){
  
     try {
-        const {name ,password,role}=req.body
+        const {name ,password}=req.body
         const connection = await CreateConection();
 
         const query = `INSERT INTO users (name,password,role) VALUES (?, ?,?)`;

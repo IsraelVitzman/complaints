@@ -1,0 +1,31 @@
+#h1head{
+  text-align: center;
+  display: block;
+  background-color: rgb(177, 167, 167);
+  padding: 20px;
+  text-align: center;
+
+}
+.inputLogin{
+    text-align: center;
+    display: block;
+    padding: 20px;
+    margin: 0 auto;
+    width: 700px;
+    height: 40px;
+    border: 3px solid #b7a2a2;
+    border-radius: 30px;
+    margin-bottom: 15px;
+
+}
+.textLogin{
+  text-align: center;
+  font-size: 30px;
+  
+  display: block;
+}
+#h2head{
+   text-align: center;
+   display: block;
+   font-size: 50px;
+}
