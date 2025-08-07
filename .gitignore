@@ -1,0 +1,57 @@
+# תיקיות שצריך להתעלם מהן
+node_modules/
+.env
+.env.*        # אם יש קבצי ENV מרובים (למשל .env.local, .env.development וכו')
+dist/
+build/
+coverage/
+tmp/
+temp/
+.cache/
+logs/
+log/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# מערכת הפעלה: macOS
+.DS_Store
+
+# מערכת הפעלה: Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# תיקיות IDE/עורכי קוד
+.vscode/
+.idea/
+
+# אם אתה משתמש ב־XAMPP:
+xampp/
+htdocs/
+*.sql
+
+# קבצי יצוא או קבצים פרטיים
+*.pem
+*.key
+*.crt
+*.p12
+
+# קבצים זמניים של מערכת
+*.swp
+*.swo
+
+# קבצי יצוא לדוקומנטים
+*.zip
+*.tar
+*.gz
+
+# דוקומנטים פרטיים (אופציונלי)
+*.pdf
+*.docx
+*.xlsx
+node_modules/
+.env
+dist/
+.vscode/
