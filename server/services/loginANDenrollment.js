@@ -21,7 +21,7 @@ export async function Login(req ,res) {
 export async function Enrollment(req ,res){
  
     try {
-        const {name ,password}=req.body
+        const {name ,password,role}=req.body
         const connection = await CreateConection();
 
         const query = `INSERT INTO users (name,password,role) VALUES (?, ?,?)`;
