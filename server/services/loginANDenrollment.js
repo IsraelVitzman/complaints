@@ -1,5 +1,5 @@
 import { CreateConnection } from '../db/connection.js';
-
+import path from 'path';
 export async function Login(req, res) {
   try {
     console.log('בקשה חדשה לכניסה');
@@ -12,7 +12,8 @@ export async function Login(req, res) {
       return res.status(404).send(`User not found: ${name}`);
     }
 
-    res.status(200).json({ data: rows });
+    res.redirect('/login.html');
+
   } catch (err) {
     console.log('Login error:', err);
     res.status(400).json({ error: err });
@@ -27,8 +28,9 @@ export async function Enrollment(req, res) {
     const role = 'user';
     const query = `INSERT INTO users (name, password) VALUES (?, ?)`;
     await connection.execute(query, [name, password]);
+ 
+    res.sendFile(path.resolve('front/html/login.html'));
 
-    res.status(201).json({ message: 'Insert successfully' });
   } catch (err) {
     console.log('Enrollment error:', err);
     res.status(500).json({ message: 'Invalid error' });
