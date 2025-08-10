@@ -9,16 +9,16 @@
 <body>
     <h1 id="h1head">ברוכים הבאים - למערכת משוב צה"ל</h1>
     
-    <form method="post" action="">
-        <label for="Complaint_field">בחר תחום</label>
-        <select name="Complaint_field" id="Complaint_field">
+    <form method="post" action="http://localhost:3000/complaints/addcomplaints">
+        <label for="typeComplaints">בחר תחום</label>
+        <select name="typeComplaints" id="typeComplaints">
              <option value="food">אוכל</option>
              <option value="equipment">ציוד</option>
              <option value="other">אחר</option>
         </select>
 
-        <label for="textarea">תוכן תלונה</label>
-        <input type="text" name="textarea" id="textarea">
+        <label for="complaints">תוכן תלונה</label>
+        <input type="text" name="complaints" id="complaints">
 
         <input type="submit" name="submit" id="submit" value="שלח">
     </form>

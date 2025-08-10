@@ -22,10 +22,11 @@ export async function UpdateStatus(req, res) {
 }
 
 export async function AddComplaints(req ,res){
- 
+    console.log("בקשה חדשה להוספת תלונה");
+    
     try {
         const {typeComplaints,complaints}=req.body
-        const connection = await CreateConection();
+        const connection = await CreateConnection();
         const status = 'בטיפול'
         const query = `INSERT INTO complaints (typeComplaints,complaints,status) VALUES (?, ?,?)`;
         await connection.execute(query, [typeComplaints,complaints,status]);
@@ -40,10 +41,12 @@ export async function AddComplaints(req ,res){
 }
 export async function GetAllComplaints(req, res) {
   try {
+    console.log("בקשה לקבלת המידע");
+    
     const connection = await CreateConnection();
     const query = `SELECT * FROM complaints`;
     const [rows] = await connection.execute(query);
-    res.status(200).json({ data: rows });
+    res.status(200).json(rows);
   } catch (err) {
     console.log(err);
     res.status(400).json({ error: err.message || err });
