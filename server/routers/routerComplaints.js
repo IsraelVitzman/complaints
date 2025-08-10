@@ -6,7 +6,7 @@ router.post('/addcomplaints',(req,res)=>{
       AddComplaints(req,res)
 })
 
-router.get('getallcomplaints',(req,res)=>{
+router.get('/getallcomplaints',(req,res)=>{
      GetAllComplaints(req,res)
 })
 router.post('updatestatus',(req,res)=>{

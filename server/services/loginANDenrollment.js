@@ -1,5 +1,7 @@
 import { CreateConnection } from '../db/connection.js';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
 export async function Login(req, res) {
   try {
     console.log('בקשה חדשה לכניסה');
@@ -12,7 +14,10 @@ export async function Login(req, res) {
       return res.status(404).send(`User not found: ${name}`);
     }
 
-    res.redirect('/login.html');
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    res.sendFile(path.join(__dirname, '../../front/html/head.html'));
+    
 
   } catch (err) {
     console.log('Login error:', err);
@@ -25,11 +30,14 @@ export async function Enrollment(req, res) {
     console.log('בקשה חדשה להרשמה');
     const { name, password } = req.body;
     const connection = await CreateConnection();
-    const role = 'user';
+
     const query = `INSERT INTO users (name, password) VALUES (?, ?)`;
     await connection.execute(query, [name, password]);
- 
-    res.sendFile(path.resolve('front/html/login.html'));
+    
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    res.sendFile(path.join(__dirname, '../../front/html/head.html'));
+
 
   } catch (err) {
     console.log('Enrollment error:', err);
