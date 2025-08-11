@@ -9,7 +9,6 @@
   <body>
     <h1 id="h1head">ברוכים הבאים - למערכת משוב צה"ל</h1>
 
-    <div id="complaintsList">טוען נתונים מהשרת...</div>
 
     <script type="module">
       async function getServerData() {
@@ -17,43 +16,16 @@
           const response = await fetch(
             "http://localhost:3000/complaints/getallcomplaints"
           );
-
           if (!response.ok) {
-            // אם יש שגיאה בשרת - קוראים את הטקסט של ההודעה
             const errorText = await response.text();
-            throw new Error(
-              `HTTP error! status: ${response.status}, message: ${errorText}`
-            );
+            console.log(errorText);
+            return   
           }
-
-          // רק אם response.ok = true קוראים ל-json
           const data = await response.json();
-
           console.log(data);
-
-          const container = document.getElementById("complaintsList");
-          if (!data || data.length === 0) {
-            container.textContent = "אין תלונות להצגה.";
-            return;
-          }
-
-          let html = "<ul>";
-          data.forEach((complaint) => {
-            html += `
-                    <li>
-                        <strong>סוג תלונה:</strong> ${complaint.typeComplaints} <br/>
-                        <strong>תוכן:</strong> ${complaint.complaints} <br/>
-                        <strong>סטטוס:</strong> ${complaint.status}
-                    </li><hr/>
-                `;
-          });
-          html += "</ul>";
-
-          container.innerHTML = html;
         } catch (err) {
           console.error("שגיאה:", err);
-          document.getElementById("complaintsList").textContent =
-            "אירעה שגיאה בטעינת התלונות: " + err.message;
+           
         }
       }
 

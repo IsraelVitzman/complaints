@@ -16,7 +16,7 @@ export async function Login(req, res) {
 
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
-    res.sendFile(path.join(__dirname, '../../front/html/head.html'));
+    res.sendFile(path.join(__dirname,'../../front/html/menu.html'));
     
 
   } catch (err) {
@@ -36,7 +36,7 @@ export async function Enrollment(req, res) {
     
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
-    res.sendFile(path.join(__dirname, '../../front/html/head.html'));
+    res.sendFile(path.join(__dirname, '../../front/html/menu.html'));
 
 
   } catch (err) {
